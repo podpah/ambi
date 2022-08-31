@@ -1,13 +1,17 @@
 body {
   /* background-image: linear-gradient(#e4efe9 , #93a5cf  );  !Bright background  */
-  background-image: linear-gradient(#868f96  , #414547);
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-family: 'Comic Sans MS'
+  font-family: 'Mulish', sans-serif;
+
 }
 
 h1 {
   text-align: center;
+}
+
+.item-container{
+  text-align: center;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
 #root {
@@ -18,7 +22,8 @@ h1 {
 }
 
 .items  {
-  border: 0.2rem solid rgba(0, 0, 0, 0.244);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px  ;
   margin: 3rem;
   height: 17rem;
   width: 20rem;
@@ -30,8 +35,7 @@ h1 {
 
 .items:hover {
   transform: scale(1.2);
-  border: 0.2rem solid rgba(0, 0, 0, 0.644);
-  background-color:#575d60;
+
 }
 
 img {
