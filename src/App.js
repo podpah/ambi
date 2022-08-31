@@ -3,8 +3,9 @@ import React, {useState, useEffect} from 'react'
 
 
 
-function showProduct(x){
-  alert(x.title +' clicked.')
+function showProduct(x){ //debugging purposes (just for u pedro )
+  console.log(x.title +' clicked.')
+  
 
 }
 
@@ -46,15 +47,15 @@ function App() {
       <div>
       <button onClick={()=>{
           setIsFocused(isFocused=> !isFocused)
-        }} >Back</button>
+        }} >Back to all</button>
       </div>
       <div className='item-container'>
         
-        <p>{focusedItem.title}</p>
+        <h2>{focusedItem.title}</h2>
         <img src={focusedItem.image} alt={focusedItem.title} />
-        <p>Price: £{focusedItem.price}</p>
-        <p>{focusedItem.description}</p>
-        <p>Category: {focusedItem.category}</p>
+        <p><b>Price</b>: £{focusedItem.price}</p>
+        <p><b>Description: </b>{focusedItem.description}</p>
+        <p><b>Category: </b>{focusedItem.category}</p>
         <button>Delete</button>
         <button>Update</button>
 
