@@ -1,7 +1,9 @@
 const express = require('express')
 const { Item } = require('../model/modelIndex')
 const app = express()
+const cors  = require('cors')
 
+app.use(cors())
 
 app.get('/' , async (req, res) => {
     let quer = await Item.findAll()
@@ -24,6 +26,7 @@ app.get('/' , async (req, res) => {
 app.get('/:item', async (req,res) => {
 
         let quer = await Item.findOne({where: {id:req.params.item}})
+        if (quer != null) {
             let {title, description,price,category,image } = quer
             let load = {
                 title: title,
@@ -32,9 +35,9 @@ app.get('/:item', async (req,res) => {
                 price : price,
                 category : category
             }
-            res.send(load)
+            res.send(load)}
 })
 
-app.listen(3000, () => {
-    console.log('The server is live and listening at http://localhost:3000')
+app.listen(1234, () => {
+    console.log('The server is live and listening at http://localhost:1234')
 })
