@@ -37,20 +37,21 @@ function App() {
           }
             
           }>
-          <p>{x.title}</p>
+          <p><b>{x.title}</b></p>
           <img src={x.image} alt={x.title} />
           <p>Price: £{x.price}</p>
           </div> } )}
     </>;
   }else{ //Here we show just the product that has been clicked on.
     return <>
-      <div>
-      <button onClick={()=>{
-          setIsFocused(isFocused=> !isFocused)
-        }} >Back to all</button>
-      </div>
+      
+      
       <div className='item-container'>
-        
+        <div className='button-container'>
+          <button onClick={()=>{
+              setIsFocused(isFocused=> !isFocused)
+            }} >Back to all</button>
+        </div>
         <h2>{focusedItem.title}</h2>
         <img src={focusedItem.image} alt={focusedItem.title} />
         <p><b>Price</b>: £{focusedItem.price}</p>
