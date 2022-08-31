@@ -13,7 +13,29 @@ h1 {
   margin-left: 10vw;
   margin-right: 10vw;
 }
+#logo{
+  padding: 20px;
+  background-color: lightgray;
+  border-radius: 10px;
+}
 
+button{
+  margin: 5px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  border-radius: 5px;
+
+}
+
+button:hover{
+  transform: scale(1.1);
+  background-color: lightgray;
+  color: black;
+}
 #root {
   display:flex;
   flex-wrap: wrap;
