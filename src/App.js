@@ -56,8 +56,8 @@ function App() {
         <p><b>Price</b>: £{focusedItem.price}</p>
         <p><b>Description: </b>{focusedItem.description}</p>
         <p><b>Category: </b>{focusedItem.category}</p>
-        <button>Delete</button>
-        <button>Update</button>
+        <button>Delete</button> {/*Here we can add logic for deleting item.*/}
+        <button>Update</button> {/*Here we can add logic for updating item.*/}
 
       </div>
       

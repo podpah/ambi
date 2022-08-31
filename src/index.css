@@ -32,10 +32,14 @@ button{
 }
 
 button:hover{
-  transform: scale(1.1);
+  transform: scale(1.2);
   background-color: lightgray;
   color: black;
 }
+button:active{
+  transform: scale(1);
+}
+
 #root {
   display:flex;
   flex-wrap: wrap;
