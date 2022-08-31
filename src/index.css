@@ -13,6 +13,9 @@ h1 {
   margin-left: 10vw;
   margin-right: 10vw;
 }
+.button-container{
+  text-align: center;
+}
 #logo{
   padding: 20px;
   background-color: lightgray;
@@ -67,4 +70,10 @@ button:active{
 img {
   width: 7.5rem;
   height: 7.5rem;
+}
+
+.item-container>img{
+  width: 20vw;
+  height: auto;
+  border: 1px solid #555;
 }
