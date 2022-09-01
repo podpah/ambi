@@ -47,6 +47,7 @@ function App() {
       
     inven()
 
+    setIsAddingItem(!isAddingItem)
     alert(payload.title);
 
     

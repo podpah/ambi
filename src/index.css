@@ -22,6 +22,7 @@ h1 {
 }
 
 button{
+  box-shadow: 0 1px 3px 0 black;
   margin: 5px;
   padding: 0;
   border: none;
@@ -35,6 +36,7 @@ button{
 }
 
 button:hover{
+  box-shadow: none;
   transform: scale(1.05);
   background-color: black;
   color: white;
@@ -58,7 +60,9 @@ button:active{
   display:flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-evenly;
+
+  justify-content:center;
+  
 }
 
 
