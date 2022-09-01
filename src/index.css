@@ -38,6 +38,7 @@ button:hover{
   transform: scale(1.2);
   background-color: lightgray;
   color: black;
+  cursor: pointer;
 }
 button:active{
   transform: scale(1);
@@ -64,7 +65,7 @@ button:active{
 
 .items:hover {
   transform: scale(1.05);
-
+  cursor: pointer;
 }
 
 img {
