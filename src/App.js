@@ -28,7 +28,7 @@ function App() {
     inven()
   } ,[])
 
-  if (isFocused == false){ //If the user is not viewing a particular product (all are being viewed), then we show all.
+  if (!isFocused){ //If the user is not viewing a particular product (all are being viewed), then we show all.
     return <>
           {inv.map((x) => {return <div className="items" onClick={()=> {
             showProduct(x)
