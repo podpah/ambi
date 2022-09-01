@@ -5,6 +5,21 @@ const cors  = require('cors')
 
 app.use(cors())
 
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+
+app.post('/add', async(req,res)=>{
+    await res.send(req.body)
+    await Item.create({
+        title: req.body.title,
+        price: req.body.price,
+        description: req.body.description,
+        category: req.body.category,
+        image: req.body.image
+    })
+})
+
 app.get('/' , async (req, res) => {
     let quer = await Item.findAll()
     let {title, description,price,category,image } = quer

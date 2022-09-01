@@ -43,12 +43,25 @@ button:active{
   transform: scale(1);
 }
 
-#root {
+.form-container{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.add-item-btn{
+  text-align: center;
+}
+
+.container{
+  text-align: center;
   display:flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+
 
 .items  {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -64,6 +77,8 @@ button:active{
 
 .items:hover {
   transform: scale(1.05);
+  cursor: pointer;
+
 
 }
 
@@ -77,3 +92,4 @@ img {
   height: auto;
   border: 1px solid #555;
 }
+
