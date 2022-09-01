@@ -45,6 +45,7 @@ function App() {
       }
     )
       
+    inven()
 
     alert(payload.title);
 
