@@ -14,7 +14,7 @@ const seed = async () => {
         // insert data
         await Promise.all(items.map(item => Item.create(item)));
 
-        console.log("db populated!");
+        console.log("Db has been populated!");
     } catch (error) {
         console.error(error);
     }
