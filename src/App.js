@@ -31,8 +31,6 @@ function App() {
 
   const handleSubmit = async(event) => {
     event.preventDefault();
-    
-
    
     let payload = {
       title: name,
@@ -90,6 +88,7 @@ function App() {
       <button className={!darkm ? "back-to-all" : "dmode back-to-all"} onClick={()=>{
                 setIsAddingItem(isAddingItem=> !isAddingItem)
         }} >Back to all</button>
+        <button className={!darkm ? "" : "dmode"} onClick={() => {darkmo()} }>Toggle colour mode</button>
     </div>
       
       <div className='form-container'>
@@ -125,7 +124,7 @@ function App() {
     setIsAddingItem((isAddingItem)=> !isAddingItem)
   }}>Add new item</button>
   </div>
-  <button className={!darkm ? "" : "dmode"} onClick={() => {darkmo()} }>Dark mode</button>
+  <button className={!darkm ? "" : "dmode"} onClick={() => {darkmo()} }>Toggle colour mode</button>
    <input type="text" id="seo" placeholder="Search" onChange={onChangeHandler} /></div>
     <h1 id={!darkm ? "logo": "darklogo"} >The Amazon Warehouse Where Bruna Works At</h1>
     </div>
@@ -150,7 +149,7 @@ function App() {
       <div id="container">
       <div className='item-container'>
         <div className='button-container'>
-          <button className={!darkm ? "" : "dmode"} onClick={() => {darkmo()} }>Dark mode</button>
+          <button className={!darkm ? "" : "dmode"} onClick={() => {darkmo()} }>Toggle colour mode</button>
           <button className={!darkm ? "" : "dmode"}  onClick={()=>{
               setIsFocused(isFocused=> !isFocused)
             }} >Back to all</button>
