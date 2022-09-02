@@ -54,6 +54,25 @@ app.get('/:item', async (req,res) => {
 
 })
 
+app.put('/update/:id', async(req, res)=>{
+    const targetItem = String(req.params.id)
+    let query = await Item.findOne({
+    where:{
+        id: targetItem
+    }
+    })
+ 
+    await query.update({
+        title: req.body.title,
+        price: req.body.price,
+        description: req.body.description,
+        category: req.body.category,
+        image: req.body.image
+    })
+    console.log(query)
+    res.sendStatus(200)
+})
+
 app.delete('/:item', async (req,res) => {
 
     let chees = await Item.findOne({where: {id:req.params.item}})
