@@ -13,7 +13,7 @@ function App() {
   const [isFocused, setIsFocused] = useState(false) //is focused refers to if an item has been clicked on. If so, the item is focused (isfocus is true)
   const [focusedItem, setFocusedItem] = useState({})
 
-  const [darkm, setDarkm] = useState(false)
+  const [darkm, setDarkm] = useState(true)
 
   const [isAddingItem, setIsAddingItem] = useState(false) //Use this state to determine if a user is adding an item or not.
 
