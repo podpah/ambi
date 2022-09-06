@@ -4,4 +4,9 @@ This project was made by @podpah and @caileighsmith during our Multiverse appren
 
 ### Running it
 
-To run it locally, you run ```npm run serv``` (for the server) in one terminal and in another terminal you type ```npm start``` (for the front-end React)
+## Back end
+To Run the server, run ```npm run serv``` in one terminal.
+
+## Front end React
+To run the React front end, open a seperate terminal in the same directory and run ```npm start``.
+
