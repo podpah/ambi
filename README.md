@@ -4,4 +4,4 @@ This project was made by @podpah and @caileighsmith during our Multiverse appren
 
 ### Running it
 
-To run it locally, you run ```npm run serv``` in one terminal and in another terminal you type ```npm start```
+To run it locally, you run ```npm run serv``` (for the server) in one terminal and in another terminal you type ```npm start``` (for the front-end React)
