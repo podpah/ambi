@@ -1,6 +1,7 @@
 # What it is
 
-This project was made by @podpah and @caileighsmith during our Multiverse apprenticeship. We have used React, Express, Sequelize and CSS mostly on it.
+Fullstack inventory tracker, made by @podpah and @caileighsmith. Technology stack used:
+React, Express, NodeJs, Sequelize and standard web languages (HTML, CSS & JS).
 
 ### Running it
 
