@@ -4,9 +4,9 @@ This project was made by @podpah and @caileighsmith during our Multiverse appren
 
 ### Running it
 
-## Back end
+**Back end**
 To Run the server, run ```npm run serv``` in one terminal.
 
-## Front end React
-To run the React front end, open a seperate terminal in the same directory and run ```npm start``.
+**Front end React**
+To run the React front end, open a seperate terminal in the same directory and run ```npm start```.
 
