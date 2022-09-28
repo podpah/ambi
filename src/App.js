@@ -17,6 +17,8 @@ function App() {
 
   const [isAddingItem, setIsAddingItem] = useState(false) //Use this state to determine if a user is adding an item or not.
 
+  const [isUpdatingItem, setIsUpdatingItem] = useState(false)
+
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
@@ -54,6 +56,32 @@ function App() {
     setIsAddingItem(!isAddingItem)
     alert(payload.title);
 
+    
+  }
+
+  const handleSubmit2 = async(event) => {
+    event.preventDefault();
+   
+    let payload = {
+      title: name,
+      price: price,
+      description: description,
+      category: category,
+      image: image
+    }
+
+    await fetch('http://localhost:1234/update/'+event.id,
+      {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+       
+      }
+    )
+      
+    inven()
+
+    setIsUpdatingItem(!isUpdatingItem)
     
   }
 
@@ -116,6 +144,40 @@ function App() {
     </>
   }
 
+  if (isUpdatingItem == true){
+    return <>
+      <div className='update-item-btn'>
+      <button className={!darkm ? "back-to-all" : "dmode back-to-all"} onClick={()=>{
+                setIsUpdatingItem(isUpdatingItem=> !isUpdatingItem)
+        }} >Back</button>
+        <button className={!darkm ? "" : "dmode"} onClick={() => {darkmo()} }>Toggle colour mode</button>
+    </div>
+      
+      <div className='form-container'>
+        <form onSubmit={handleSubmit2(focusedItem)}>
+          <br></br>
+          Name: <input placeholder='Product name..' name='name' value={name} onChange={
+             ev => setName(ev.target.value)
+             }></input><br></br><br></br>
+          Price: <input placeholder='Product price..' name='price' value={price} onChange={
+            ev=> setPrice(ev.target.value)
+          } ></input><br></br><br></br>
+          <textarea placeholder='Product description..' name='description' rows={4} value={description} onChange={
+            ev=> setDescription(ev.target.value)
+          }></textarea><br></br><br></br>
+          Category: <input placeholder='Product category..' name='category' value={category} onChange={
+            ev=> setCategory(ev.target.value)
+          } ></input><br></br><br></br>
+          Image <input placeholder='Image link..' name='image' value={image} onChange={
+            ev=> setImage(ev.target.value)
+          } ></input><br></br><br></br>
+          <button className={!darkm ? "" : "dmode"}  type='submit'>Update item</button>
+        </form>
+      </div>
+      
+    </>
+  }
+
   if (!isFocused){ //If the user is not viewing a particular product (all are being viewed), then we show all.
     return <div>
           <div>
@@ -162,7 +224,7 @@ function App() {
         <button className={!darkm ? "" : "dmode"}  onClick={() => {delitem(focusedItem.id)
         setIsFocused(!isFocused)
         }}>Delete</button> {/*Here we can add logic for deleting item.*/}
-        <button className={!darkm ? "" : "dmode"} >Update</button> {/*Here we can add logic for updating item.*/}
+        <button className={!darkm ? "" : "dmode"} onClick={()=>{setIsUpdatingItem((isUpdatingItem)=> !isUpdatingItem);console.log(focusedItem.id)}} >Update</button> {/*Here we can add logic for updating item.*/}
 
       </div>
       </div>
