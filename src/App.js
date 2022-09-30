@@ -2,10 +2,6 @@ import './App.css';
 import React, {useState, useEffect,onChange} from 'react'
 import { getElementError } from '@testing-library/react';
 
-function showProduct(x){ //debugging purposes (just for u pedro )
-  console.log(x.title +' clicked.')
-}
-
 function App() {
 
   const [inv, setInv] = useState([])
@@ -24,6 +20,14 @@ function App() {
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('')
   const [image, setImage] = useState('')
+
+  const [edTitle, setEdTitle] = useState(focusedItem.title)
+  const [edPrice, setEdPrice] = useState(focusedItem.price)
+  const [edDescription, setEdDescription] = useState(focusedItem.description)
+  const [edCategory, setEdCategory] = useState(focusedItem.category)
+  const [edImage, setEdImage] = useState(focusedItem.image)
+  const [edId, setEdId] = useState(focusedItem.id)
+
 
   function darkmo() {
     setDarkm(!darkm)
@@ -63,14 +67,14 @@ function App() {
     event.preventDefault();
    
     let payload = {
-      title: name,
-      price: price,
-      description: description,
-      category: category,
-      image: image
+      title: edTitle,
+      price: edPrice,
+      description: edDescription,
+      category: edCategory,
+      image: edImage
     }
 
-    await fetch('http://localhost:1234/update/'+event.id,
+    await fetch('http://localhost:1234/update/'+ edId,
       {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
@@ -154,24 +158,24 @@ function App() {
     </div>
       
       <div className='form-container'>
-        <form onSubmit={handleSubmit2(focusedItem)}>
+        <form>
           <br></br>
-          Name: <input placeholder='Product name..' name='name' value={name} onChange={
-             ev => setName(ev.target.value)
+          Name: <input placeholder='Product name..' name='name' value={edTitle} onChange={
+             (ev) => setEdTitle(ev.target.value)
              }></input><br></br><br></br>
-          Price: <input placeholder='Product price..' name='price' value={price} onChange={
-            ev=> setPrice(ev.target.value)
+          Price: <input placeholder='Product price..' name='price' value={edPrice} onChange={
+            (ev)=> setEdPrice(ev.target.value)
           } ></input><br></br><br></br>
-          <textarea placeholder='Product description..' name='description' rows={4} value={description} onChange={
-            ev=> setDescription(ev.target.value)
+          <textarea placeholder='Product description..' name='description' rows={4} value={edDescription} onChange={
+            (ev)=> setEdDescription(ev.target.value)
           }></textarea><br></br><br></br>
-          Category: <input placeholder='Product category..' name='category' value={category} onChange={
-            ev=> setCategory(ev.target.value)
+          Category: <input placeholder='Product category..' name='category' value={edCategory} onChange={
+            (ev)=> setEdCategory(ev.target.value)
           } ></input><br></br><br></br>
-          Image <input placeholder='Image link..' name='image' value={image} onChange={
-            ev=> setImage(ev.target.value)
+          Image <input placeholder='Image link..' name='image' value={edImage} onChange={
+            (ev)=> setEdImage(ev.target.value)
           } ></input><br></br><br></br>
-          <button className={!darkm ? "" : "dmode"}  type='submit'>Update item</button>
+          <button className={!darkm ? "" : "dmode"}  type='submit' onClick={handleSubmit2}>Update item</button>
         </form>
       </div>
       
@@ -188,15 +192,20 @@ function App() {
   </div>
   <button className={!darkm ? "" : "dmode"} onClick={() => {darkmo()} }>Toggle colour mode</button>
    <input type="text" id="seo" placeholder="Search" onChange={onChangeHandler} /></div>
-    <h1 id={!darkm ? "logo": "darklogo"} >The Amazon Warehouse Where Bruna Works At</h1>
+    <h1 id={!darkm ? "logo": "darklogo"} >Inventory App</h1>
     </div>
     <div id="container">
         
 
           {filteredInv.map((x) => {return <div className={!darkm ? "items" : "dmodeitems"} onClick={()=> {
-            showProduct(x)
             setIsFocused(isFocused => !isFocused) //When a component is clicked, the isFocused variable flips.
             setFocusedItem(x)
+            setEdTitle(x.title)
+            setEdCategory(x.category)
+            setEdDescription(x.description)
+            setEdPrice(x.price)
+            setEdImage(x.image)
+            setEdId(x.id)
           }
             
           }>
@@ -207,7 +216,7 @@ function App() {
     </div></div>;
   }else{ //Here we show just the product that has been clicked on.
     return (<div>
-    <h1 id={!darkm ? "logo": "darklogo"} >The Amazon Warehouse Where Bruna Works At</h1>
+    <h1 id={!darkm ? "logo": "darklogo"} >Inventory App</h1>
       <div id="container">
       <div className='item-container'>
         <div className='button-container'>
